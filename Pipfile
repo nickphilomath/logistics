@@ -8,6 +8,8 @@ django = "*"
 djoser = "*"
 python-dotenv = "*"
 mysqlclient = "*"
+django-cors-headers = "*"
+python-telegram-bot = "*"
 
 [dev-packages]
 

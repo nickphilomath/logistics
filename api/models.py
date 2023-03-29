@@ -48,3 +48,12 @@ class EditTrailer(BaseTrailer):
     trailer = models.ForeignKey(Trailer, on_delete=models.CASCADE, related_name='edit_trailer')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='edit_trailer_user')
     edit_time = models.DateTimeField(auto_now_add=True)
+
+
+############## actions ##############
+class Action(models.Model):
+    user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    operation = models.CharField(max_length=3, choices=CONSTANTS.OPERATIONS)
+    target = models.BigIntegerField(null=True)
+    target_name = models.CharField(max_length=3, choices=CONSTANTS.TARGET_NAMES)
+    time = models.DateTimeField(auto_now_add=True)

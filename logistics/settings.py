@@ -25,14 +25,15 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'rest_framework',
     'rest_framework_simplejwt',
-    # 'corsheaders',
+    'corsheaders',
     # 'debug_toolbar',
     'api',
     'core',
+    'telebot'
 ]
 
 MIDDLEWARE = [
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     # 'debug_toolbar.middleware.DebugToolbarMiddleware',
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -149,10 +150,11 @@ DJOSER = {
 }
 
 # cors settings
-# CORS_ALLOWED_ORIGINS  = [
-#     "http://localhost:3000",
-# ]
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS  = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+# CORS_ALLOW_ALL_ORIGINS = True
 
 #debug toolbar settings
 INTERNAL_IPS = [

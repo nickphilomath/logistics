@@ -1,0 +1,148 @@
+.users .head h1 {
+    font-size: 2rem;
+}
+
+.users .form h1 {
+    font-size: 1.8rem;
+}
+
+.users .button {
+    font-size: 1rem;
+    margin-top: 30px;
+    cursor: pointer;
+    width: 100px;
+    padding: 8px 0;
+    border: none;
+    background: #0d6ede;
+    color: white;
+    border-radius: 5px;
+}
+
+/*  */
+.users .table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0px;
+    margin-top: 40px;
+    overflow: auto;
+}
+
+.users .table td,
+.users .table th {
+    padding: 15px 10px;
+    text-align: left;
+}
+
+.users .table thead th {
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid black;
+    z-index: 3;
+}
+
+.users .table thead tr {
+    white-space: nowrap;
+}
+
+.users .table tbody tr {
+    transition: 0.4s ease;
+}
+
+.users .table tbody tr td {
+    white-space: nowrap;
+    border-bottom: 1px solid rgb(186, 186, 186);
+}
+
+.users .table tbody tr td.updated {
+    background-color: rgba(62, 189, 240, 0.5);
+}
+
+.users .table a {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.users .form {
+    background: white;
+    max-height: 95%;
+    max-width: 35%;
+    border-radius: 7px;
+}
+
+.users .form-info {
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.users .form .form-container {
+    padding: 20px;
+    overflow: auto;
+    overflow-x: hidden;
+    height: 70vh;
+    width: 100%;
+}
+
+.users .buttons-container {
+    padding: 20px 30px;
+}
+
+.users .buttons {
+    display: flex;
+    width: 140px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.users .form button {
+    margin-top: 30px;
+    cursor: pointer;
+    width: 60px;
+    padding: 12px 0;
+    border: none;
+    border-radius: 3px;
+}
+
+.users .form .loadingButton {
+    padding: 8px 0 !important;
+}
+
+.users .input {
+    margin-top: 20px;
+}
+
+.users button.save {
+    background: #0d6ede;
+    color: white;
+}
+
+.users button.cancel {
+    background: white;
+    border: 1px solid gray;
+}
+
+
+.users .permission-table .row {
+    margin: 5px;
+}
+
+.users .permission-table ul {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.users .permission-table ul li {
+    width: 120px;
+    list-style-type: none;
+}
+
+.users .permission-table .input {
+    margin: 0;
+}
+
+.users .permission-table .input .row {
+    width: 100px;
+}
