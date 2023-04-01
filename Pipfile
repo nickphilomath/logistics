@@ -10,6 +10,11 @@ python-dotenv = "*"
 mysqlclient = "*"
 django-cors-headers = "*"
 python-telegram-bot = "*"
+celery = "*"
+redis = "*"
+flower = "*"
+eventlet = "*"
+django-redis = "*"
 
 [dev-packages]
 

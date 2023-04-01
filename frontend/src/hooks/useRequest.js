@@ -103,14 +103,12 @@ const useRequest = (url) => {
   };
 
   const get = async () => {
-    setData([]);
     setErrMsg("");
     setIsLoading(true);
     try {
       const response = await axios.get(url, getHeaders());
       setIsLoading(false);
       setData(response.data);
-      console.log("response data: ", response.data);
     } catch (err) {
       setIsLoading(false);
       handleError(err);
@@ -146,7 +144,7 @@ const useRequest = (url) => {
       const response = await axios.put(url, JSON.stringify(data), getHeaders());
       setIsLoading(false);
       handleSuccess(response);
-      console.log("response###", response);
+      // console.log("response###", response);
       return response.data ? response.data : true;
     } catch (err) {
       setIsLoading(false);

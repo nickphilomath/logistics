@@ -40,6 +40,10 @@ class CONSTANTS:
         ('rep', 'Repairing'),
     ]
     DEFAULT_TRAILER_STATUS = 'uns'
+    TRAILER_LOG_STATUS = [
+        ('m', 'move'),
+        ('s', 'stop'),
+    ]
 
     BUDGET_TYPE = [
         ('D', 'driver'),

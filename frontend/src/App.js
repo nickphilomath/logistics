@@ -8,6 +8,7 @@ import Logout from "./components/Logout";
 import Unauthorized from "./components/Unauthorized";
 import Missing from "./components/Missing";
 import Home from "./components/Home";
+import Overview from "./components/Overview/Overview";
 import Assets from "./components/Assets/Assets";
 import Users from "./components/Users/Users";
 
@@ -23,6 +24,7 @@ const App = () => {
         {/* protected routes */}
         <Route path="/" element={<Layout />}>
           <Route element={<RequireAuth allowedRoles={[ROLES.Owner, ROLES.Admin, ROLES.Dispatcher, ROLES.Updater]} />}>
+            <Route path="overview" element={<Overview />} />
             <Route path="assets" element={<Assets />} />
             <Route path="users" element={<Users />} />
           </Route>

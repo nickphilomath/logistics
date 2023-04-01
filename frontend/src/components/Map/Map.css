@@ -1,0 +1,28 @@
+#map {
+    width: 100%;
+    height: 100%;
+    background: rgba(98, 192, 98, 0.596);
+    position: relative;
+}
+
+#map .map-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#map .map-box {
+    position: absolute;
+    /* transform: translate(256px, 256px); */
+}
+
+#map .map-image {
+    width: 256px;
+    height: 256px;
+    user-select: none;
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    max-width: none;
+}

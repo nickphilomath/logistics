@@ -1,8 +1,251 @@
 .assets {
+    overflow: auto;
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.assets .head {
+    margin-top: 20px;
+}
+
+.assets .head h1 {
+    font-size: 2rem;
+}
+
+.assets .form h1 {
+    font-size: 1.8rem;
+}
+
+.assets .button {
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100px;
+    padding: 8px 0;
+    border: none;
+    background: #0d6ede;
+    color: white;
+    border-radius: 5px;
+}
+
+/*  */
+.assets .table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 0px;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.assets .table td,
+.assets .table th {
+    padding: 15px 10px;
+    text-align: left;
+}
+
+.assets .table thead {
+    position: sticky;
+    top: 0;
+    border-bottom: 2px solid black;
+    z-index: 3;
+    background-color: white;
+}
+
+.assets .table thead tr {
+    white-space: nowrap;
+}
+
+.assets .table tbody tr td {
+    white-space: nowrap;
+    border-bottom: 1px solid rgb(186, 186, 186);
+}
+
+.assets .table tbody tr td.updated {
+    background-color: rgba(62, 189, 240, 0.5);
+}
+
+.assets .table a {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.assets .form {
+    background: white;
+    max-height: 95%;
+    width: 35%;
+    border-radius: 7px;
+}
+
+.assets .asset-log {
+    background: white;
+    max-height: 95%;
+    min-height: 40%;
+    width: 65%;
+    border-radius: 7px;
+}
+
+.assets .assets-log-table-container {
+    padding: 0 30px;
+    height: 70vh;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.assets .assets-log-table-container::-webkit-scrollbar {
+    display: none;
+}
+
+.assets .form-info {
+    padding: 20px;
+    border-bottom: 1px solid gray;
+}
+
+.assets .form-info h1 {
+    font-size: 1.5rem;
+}
+
+.assets .form .form-container {
+    padding: 20px;
+    overflow: auto;
+    overflow-x: hidden;
+    height: 70vh;
     width: 100%;
 }
 
-.assets-map {
-    width: 100%;
-    height: 100%;
+.assets .buttons-container {
+    padding: 20px 30px;
+}
+
+.assets .buttons {
+    display: flex;
+    width: 140px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.assets .form button {
+    margin-top: 30px;
+    cursor: pointer;
+    width: 60px;
+    padding: 12px 0;
+    border: none;
+    border-radius: 3px;
+}
+
+.assets .form .loadingButton {
+    padding: 8px 0 !important;
+}
+
+.assets .input {
+    margin-top: 20px;
+}
+
+.assets button.save {
+    background: #0d6ede;
+    color: white;
+}
+
+.assets button.cancel {
+    background: white;
+    border: 1px solid gray;
+}
+
+
+.assets .permission-table .row {
+    margin: 5px;
+}
+
+.assets .permission-table ul {
+    width: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.assets .permission-table ul li {
+    width: 120px;
+    list-style-type: none;
+}
+
+.assets .permission-table .input {
+    margin: 0;
+}
+
+.assets .permission-table .input .row {
+    width: 100px;
+}
+
+.assets .actions {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.assets .icon-holder {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background: rgb(223, 223, 223);
+}
+
+.assets .icon-holder:hover {
+    cursor: pointer;
+    background-color: rgb(180, 180, 180);
+}
+
+.assets .edit {
+    color: rgb(165, 107, 1);
+}
+
+.assets .log {
+    color: rgb(44, 107, 208);
+}
+
+.assets .good {
+    font-weight: bold;
+    color: rgb(18, 154, 18);
+}
+
+.assets .warn {
+    font-weight: bold;
+    color: rgb(240, 85, 85)
+}
+
+.assets .location {
+    font-weight: 600;
+}
+
+.assets .location:hover {
+    cursor: pointer;
+    color: rgb(34, 101, 210);
+}
+
+.assets .head-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.assets .close-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: rgb(255, 83, 83);
+}
+
+.assets .close-icon:hover {
+    cursor: pointer;
+    background-color: rgb(225, 225, 225);
 }

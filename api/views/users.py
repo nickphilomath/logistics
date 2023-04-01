@@ -11,9 +11,8 @@ from ..functions import check_permission, get_week_start, generate_action
 
 
 @api_view(['GET', 'POST', 'PUT'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def users(request):
-    time.sleep(0.5)
     if request.method == 'GET':
         if check_permission(request.user, 'view', 'user'):
             if request.GET.get('id', None):

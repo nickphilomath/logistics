@@ -81,8 +81,6 @@ export const stringToDateTime = (str, initial) => {
   let date = initial ? new Date(initial) : new Date();
   let allArgs = str.split(" & ");
 
-  
-
   for (let a of allArgs) {
     let args = a.split(" ");
 
@@ -90,30 +88,30 @@ export const stringToDateTime = (str, initial) => {
       // changes nothing *
     }
     if (args.includes("tomorrow")) {
-      date.setDate(date.getDate() + 1)
+      date.setDate(date.getDate() + 1);
     }
-    
+
     if (args.includes("beginning")) {
       if (args[1] === "week") date.setDate(date.getDate() - date.getDay());
       if (args[1] === "month") date.setDate(1);
     }
-  
+
     if (args[1] === "days") {
       date.setDate(args[2] === "before" ? date.getDate() - parseInt(args[0]) : args[2] === "later" ? date.setDate(date.getDate() + parseInt(args[0])) : date.getDate());
     }
     if (args[1] === "month") {
-      date.setMonth(args[2] === "before" ? date.getMonth() - parseInt(args[0]) : args[2] === "later" ? date.setDate(date.getMonth() + parseInt(args[0])) : date.getMonth())
+      date.setMonth(args[2] === "before" ? date.getMonth() - parseInt(args[0]) : args[2] === "later" ? date.setDate(date.getMonth() + parseInt(args[0])) : date.getMonth());
     }
 
     if (args[0] === "no") {
-      date.setHours(0)
-      date.setMinutes(0)
-      date.setSeconds(0)
+      date.setHours(0);
+      date.setMinutes(0);
+      date.setSeconds(0);
     }
   }
 
   return date;
-}
+};
 
 export const getName = (id, list) => {
   for (let l of list) {
@@ -141,7 +139,7 @@ export const getNumber = (id, names) => {
     if (name.id === id) return name.number;
   }
   return "";
-}
+};
 
 export const getChoice = (choice, choices) => {
   let found = "*not found";
@@ -151,6 +149,13 @@ export const getChoice = (choice, choices) => {
     }
   });
   return found;
+};
+
+export const findAndGet = (item, value, items) => {
+  for (let i of items) {
+    if (i[item] === value) return i;
+  }
+  return false;
 };
 
 export const fixDate = (dateTime) => {

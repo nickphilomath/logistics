@@ -1,6 +1,7 @@
-import { fixDate, getChoice } from "../../functions/Functions";
+import { fixDate, getChoice } from "../functions/Functions";
+import "./ActivityChart.css";
 
-const ActivityCart = ({ data }) => {
+const ActivityChart = ({ data }) => {
   // const data = {
   //   from: "2023-02-13T00:00:00.000000-05:00",
   //   to: "2023-02-14T00:00:00.000000-05:00",
@@ -36,15 +37,10 @@ const ActivityCart = ({ data }) => {
         <span className="time-start">{fixDate(data.from)}</span>
         <span className="time-end">{fixDate(data.to)}</span>
         {data.charts.map((e, index) => {
-          var evars = convert(
-            index,
-            e.edit_time,
-            index === data.charts.length - 1
-              ? -1
-              : data.charts[index + 1].edit_time
-          );
+          var evars = convert(index, e.time, index === data.charts.length - 1 ? -1 : data.charts[index + 1].time);
           return (
             <span
+              key={index}
               className="chart-element"
               style={{
                 background: data.colors[e.status],
@@ -55,14 +51,11 @@ const ActivityCart = ({ data }) => {
           );
         })}
       </div>
-      <div className="map">
+      <div className="chart-map">
         {Object.keys(data.colors).map((s) => {
           return (
             <div className="color">
-              <span
-                className="box"
-                style={{ background: data.colors[s] }}
-              ></span>
+              <span className="box" style={{ background: data.colors[s] }}></span>
               {data.colorChoices ? getChoice(s, data.colorChoices) : s}
             </div>
           );
@@ -72,4 +65,4 @@ const ActivityCart = ({ data }) => {
   );
 };
 
-export default ActivityCart;
+export default ActivityChart;

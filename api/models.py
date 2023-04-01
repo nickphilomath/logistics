@@ -35,19 +35,26 @@ class EditDriver(BaseDriver):
 
 ############## trailer ##############
 class BaseTrailer(models.Model):
-    number = models.CharField(max_length=20)
+    number = models.CharField(max_length=20, unique=True)
     status = models.CharField(max_length=3, choices=CONSTANTS.TRAILER_STATUS, default=CONSTANTS.DEFAULT_TRAILER_STATUS)
     notes = models.CharField(max_length=255, null=True, blank=True)
     class Meta:
         abstract = True
 
 class Trailer(BaseTrailer):
-    pass
+    last_trip = models.DateTimeField(null=True)
+    samsara_id = models.BigIntegerField(null=True)
 
 class EditTrailer(BaseTrailer):
     trailer = models.ForeignKey(Trailer, on_delete=models.CASCADE, related_name='edit_trailer')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='edit_trailer_user')
     edit_time = models.DateTimeField(auto_now_add=True)
+
+
+class TrailerLog(models.Model):
+    trailer = models.ForeignKey(Trailer, on_delete=models.CASCADE, related_name='trailer_log')
+    status = models.CharField(max_length=1, choices=CONSTANTS.TRAILER_LOG_STATUS)
+    time = models.DateTimeField(auto_now_add=True)
 
 
 ############## actions ##############

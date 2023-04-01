@@ -20,6 +20,10 @@
     border: 1px solid #2483e9;
 }
 
+.checkbox label {
+    margin-bottom: 0;
+}
+
 .input input[type="checkbox"] {
 
     /* Double-sized Checkboxes */

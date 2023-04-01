@@ -3,6 +3,7 @@
     width: 60px;
     background: #f6f7f9;
     border-right: 1px solid rgb(204, 204, 204);
+    position: relative;
     z-index: 2;
 }
 
@@ -10,11 +11,19 @@
     height: 50px;
 }
 
-.navbar .sidebar-main {
+.navbar .sidebar-main,
+.navbar .sidebar-settings {
     padding: 12px;
 }
 
-.navbar .sidebar-main .sidebar-item {
+.navbar .sidebar-settings {
+    position: absolute;
+    width: 100%;
+    bottom: 40px;
+    left: 0;
+}
+
+.navbar .sidebar-item {
     width: 100%;
     height: 35px;
     margin-top: 10px;
@@ -23,30 +32,53 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #e1e1e1;
+    background: #e2e2e2;
     color: rgb(63, 63, 63);
 }
 
-.navbar .sidebar-main .sidebar-item:hover {
+.navbar .sidebar-item:hover {
     cursor: pointer;
     background: #c9c9c9;
     color: rgb(26, 26, 26);
 }
 
-.navbar .sidebar-main .sidebar-item svg {
+.navbar .sidebar-item svg {
     font-size: 1.5rem;
 }
 
 .navbar .sidebar-title {
     display: none;
     position: absolute;
-    right: -70px;
+    left: 120%;
     padding: 5px 10px;
     border-radius: 7px;
     background-color: rgba(18, 18, 19, 0.708);
     color: white;
 }
 
-.navbar .sidebar-item:hover .sidebar-title {
+.navbar .variants {
+    width: 150px;
+    display: none;
+    position: absolute;
+    left: 120%;
+    top: -30%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    border: 1px solid rgb(186, 186, 186);
+}
+
+.navbar .variants div {
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+.navbar .variants div:hover {
+    background-color: #dedede;
+}
+
+.navbar .sidebar-item:hover .sidebar-title,
+.navbar .sidebar-item:hover .variants {
     display: block;
 }

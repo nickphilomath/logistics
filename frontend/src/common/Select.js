@@ -17,7 +17,7 @@ const Select = ({ name, label, value, onChange, selections, isObject = false, er
           return <option value={d[0]}>{d[1]}</option>;
         })}
       </select>
-      {error && <div className="err-input">{error}</div>}
+      {error && <div className="input-error">{error}</div>}
     </div>
   );
 };

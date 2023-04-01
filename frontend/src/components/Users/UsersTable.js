@@ -54,6 +54,7 @@ const UsersTable = ({ users, handleEdit }) => {
                     onClick={() => {
                       handleEdit(user);
                     }}
+                    title="edit"
                   >
                     <BsPencil className="icon edit" />
                   </div>

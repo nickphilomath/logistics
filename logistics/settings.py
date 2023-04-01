@@ -114,7 +114,8 @@ USE_TZ = True
 STATIC_URL = "static/"
 # STATIC_ROOT = os.path.join(BASE_DIR, 'frontend/build/static')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build/static')
+    os.path.join(BASE_DIR, 'frontend/build/static'),
+    os.path.join(BASE_DIR, 'mapDownloader'),
 ]
 
 # Default primary key field type
@@ -162,15 +163,33 @@ INTERNAL_IPS = [
 ]
 
 # celery settings
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/1' # /1
 
 CELERY_BEAT_SCHEDULE = {
-    'notifyCustomers': {
-        'task': 'api.tasks.notify_customers',
-        'schedule': 5, # every five seconds
-        # 'schedule': crontab(minute='*/15') # every 15 minutes
-        # 'schedule': crontab(day_of_week=1, hour=7, minute=30) # every monday at 7:30 am
-        'args': ['hello world'],
+    # 'notifyCustomers': {
+    #     'task': 'api.tasks.notify_customers',
+    #     'schedule': 15, # every five seconds
+    #     # 'schedule': crontab(minute='*/15') # every 15 minutes
+    #     # 'schedule': crontab(day_of_week=1, hour=7, minute=30) # every monday at 7:30 am
+    #     'args': ['hello world'],
+    # },
+    'updateTrailers': {
+        'task': 'api.tasks.update_trailers',
+        'schedule': 5,
+    },
+    'logTrailers': {
+        'task': 'api.tasks.log_trailers',
+        'schedule': 2 * 60
+    }
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
     }
 }
 

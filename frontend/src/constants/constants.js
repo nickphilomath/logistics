@@ -9,14 +9,17 @@ export const USERS_URL = "/api/users/";
 export const USERS_LIST_URL = "/api/users/?list=True";
 export const DISPATCHERS_LIST_URL = "/api/users/?list=True&filter=DIS";
 
+export const ASSETS_URL = "api/assets/";
+
 export const CARRIERS_URL = "/api/carriers/";
 export const CARRIERS_LIST_URL = "/api/carriers/?list=True";
 
 export const LOADS_URL = "/api/loads/";
 
-export const TRAILERS_URL = "/api/trailers/";
+export const TRAILERS_URL = "/api/assets/trailers/";
 
-export const DEFAULT_PAGE = "/assets";
+// export const DEFAULT_PAGE = "/assets/?view=0";
+export const DEFAULT_PAGE = "/overview";
 
 export const ROLES = {
   Owner: "OWN",
@@ -74,6 +77,16 @@ export const TRAILER_STATUS = {
   ius: "In use",
   uns: "Unused",
   rep: "Repairing",
+};
+
+export const TRAILER_LOG_STATUS = {
+  m: "move",
+  s: "stop",
+};
+
+export const TRAILER_LOG_STATUS_COLOR = {
+  m: "#00c94a",
+  s: "#ff696e",
 };
 
 export const BUDGET_TYPE = {

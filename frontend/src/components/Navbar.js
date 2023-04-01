@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { RiExchangeDollarLine, RiLineChartLine, RiAdminLine } from "react-icons/ri";
+import { BiLogOut } from "react-icons/bi";
 import { HiUsers } from "react-icons/hi";
+import { FaPowerOff, FaTruck } from "react-icons/fa";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -16,10 +18,19 @@ const Navbar = () => {
         <div
           className="sidebar-item"
           onClick={() => {
-            navigate("/assets");
+            navigate("/overview");
           }}
         >
           <FaMapMarkedAlt />
+          <div className="sidebar-title">Overview</div>
+        </div>
+        <div
+          className="sidebar-item"
+          onClick={() => {
+            navigate("/assets?view=0");
+          }}
+        >
+          <FaTruck />
           <div className="sidebar-title">Assets</div>
         </div>
         <div
@@ -33,6 +44,17 @@ const Navbar = () => {
         </div>
         <div className="sidebar-item">
           <RiExchangeDollarLine />
+        </div>
+      </div>
+      <div className="sidebar-settings">
+        <div
+          className="sidebar-item"
+          onClick={() => {
+            navigate("/logout");
+          }}
+        >
+          <FaPowerOff />
+          <div className="sidebar-title">Logout</div>
         </div>
       </div>
     </div>
