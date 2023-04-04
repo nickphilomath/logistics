@@ -62,16 +62,16 @@ const Map = () => {
     <div id="map" ref={mapRef}>
       <div className="map-container" style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }}>
         <div className="map-box" style={{ transform: "translate(-256px, -256px)" }}>
-          <img draggable={false} alt="" src="http://127.0.0.1:8000/static/mapData/z1/map-0-0-1.jpg" className="map-image" />
+          <img draggable={false} alt="" src="/static/mapData/z1/map-0-0-1.jpg" className="map-image" />
         </div>
         <div className="map-box" style={{ transform: "translate(-256px, 0px)" }}>
-          <img draggable={false} alt="" src="http://127.0.0.1:8000/static/mapData/z1/map-0-1-1.jpg" className="map-image" />
+          <img draggable={false} alt="" src="/static/mapData/z1/map-0-1-1.jpg" className="map-image" />
         </div>
         <div className="map-box" style={{ transform: "translate(0px, -256px)" }}>
-          <img draggable={false} alt="" src="http://127.0.0.1:8000/static/mapData/z1/map-1-0-1.jpg" className="map-image" />
+          <img draggable={false} alt="" src="/static/mapData/z1/map-1-0-1.jpg" className="map-image" />
         </div>
         <div className="map-box" style={{ transform: "translate(0px, 0px)" }}>
-          <img draggable={false} alt="" src="http://127.0.0.1:8000/static/mapData/z1/map-1-1-1.jpg" className="map-image" />
+          <img draggable={false} alt="" src="/static/mapData/z1/map-1-1-1.jpg" className="map-image" />
         </div>
       </div>
     </div>

@@ -63,6 +63,10 @@
     background-color: rgba(62, 189, 240, 0.5);
 }
 
+.assets table .inactive {
+    opacity: 0.8;
+}
+
 .assets .table a {
     width: 100%;
     display: block;

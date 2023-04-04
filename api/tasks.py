@@ -88,6 +88,9 @@ def log_trailers():
                 log = TrailerLog()
                 log.trailer_id = d['id']
                 log.status = status
+                log.latitude = d['latitude']
+                log.longitude = d['longitude']
+                log.location = d['location']
                 log.save()
 
 

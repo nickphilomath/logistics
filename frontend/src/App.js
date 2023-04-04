@@ -10,6 +10,7 @@ import Missing from "./components/Missing";
 import Home from "./components/Home";
 import Overview from "./components/Overview/Overview";
 import Assets from "./components/Assets/Assets";
+import Safety from "./components/Safety/Safety";
 import Users from "./components/Users/Users";
 
 const App = () => {
@@ -23,9 +24,10 @@ const App = () => {
 
         {/* protected routes */}
         <Route path="/" element={<Layout />}>
-          <Route element={<RequireAuth allowedRoles={[ROLES.Owner, ROLES.Admin, ROLES.Dispatcher, ROLES.Updater]} />}>
+          <Route element={<RequireAuth allowedRoles={[ROLES.Owner, ROLES.Admin, ROLES.Dispatcher, ROLES.Updater, ROLES.Accountant, ROLES.Developer, ROLES.Fleet_manager, ROLES.Safety_manager]} />}>
             <Route path="overview" element={<Overview />} />
             <Route path="assets" element={<Assets />} />
+            <Route path="safety" element={<Safety />} />
             <Route path="users" element={<Users />} />
           </Route>
           <Route path="/unauthorized" element={<Unauthorized />} />

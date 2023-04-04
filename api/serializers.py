@@ -3,7 +3,7 @@ from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 from core.models import User
 from core.serializers import UserSerializer
-from .models import Driver, EditDriver, Trailer, EditTrailer, TrailerLog
+from .models import Driver, EditDriver, Trailer, EditTrailer, TrailerLog, TrailerImage
 
 
 class DriverSerializer(ModelSerializer):
@@ -203,11 +203,16 @@ class TrailerEditSerializer(ModelSerializer):
         model = EditDriver
         fields = '__all__'
 
+class TrailerImageSerializer(ModelSerializer):
+    class Meta:
+        model = TrailerImage
+        fields = ['id', 'image']
+
 
 class TrailerLogSerializer(ModelSerializer):
     class Meta:
         model = TrailerLog
-        fields = ['status', 'time']
+        fields = '__all__'
 
 # class EditLogSerializer (ModelSerializer):
 #     class Meta:

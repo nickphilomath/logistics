@@ -5,8 +5,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import status
-from ..models import Trailer, TrailerLog
-from ..serializers import TrailerSerializer, TrailerListSerializer, TrailerLogSerializer
+from ..models import Trailer, TrailerLog, TrailerImage
+from ..serializers import TrailerSerializer, TrailerListSerializer, TrailerLogSerializer, TrailerImageSerializer
 from ..functions import check_permission, generate_action
 from django.core.cache import cache
 
@@ -72,10 +72,26 @@ def trailer_logs(request):
         t_from = request.GET.get('from')
         t_to = request.GET.get('to')
         trailer_id = request.GET.get('id')
-        last_status = TrailerLog.objects.values('status', 'time').order_by("-time").filter(trailer_id=trailer_id, time__lt=t_from)[:1]
+        last_status = TrailerLog.objects.all().order_by("-time").filter(trailer_id=trailer_id, time__lt=t_from)[:1]
         if not last_status:
             last_status = [TrailerLog(status='s', time=datetime.datetime.now())]
-        query = TrailerLog.objects.values('status', 'time').filter(trailer_id=trailer_id, time__gte=t_from, time__lte=t_to)
+        query = TrailerLog.objects.all().filter(trailer_id=trailer_id, time__gte=t_from, time__lte=t_to)
         last_status_serializer = TrailerLogSerializer(last_status, many=True)
         serializer = TrailerLogSerializer(query, many=True)
         return Response(last_status_serializer.data + serializer.data, status=status.HTTP_200_OK)
+    
+
+@api_view(['GET', 'POST'])
+@permission_classes([AllowAny])
+def trailer_images(request, id):
+    if request.method == 'GET':
+        query = TrailerImage.objects.filter(trailer_id=id)
+        serialiezer = TrailerImageSerializer(query, many=True)
+        return Response(serialiezer.data, status=status.HTTP_200_OK)
+    if request.method == 'POST':
+        serialiezer = TrailerImageSerializer(data=request.data)
+        if serialiezer.is_valid():
+            serialiezer.save()
+            return Response(status=status.HTTP_200_OK)
+        return Response(serialiezer.errors, status=status.HTTP_400_BAD_REQUEST)
+

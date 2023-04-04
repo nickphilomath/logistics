@@ -1,6 +1,6 @@
 import { ImCross } from "react-icons/im";
 import { useEffect, useState } from "react";
-import { stringToDateTime, dateToString, fixDate, getChoice } from "../../functions/Functions";
+import { stringToDateTime, dateToString, fixDate, getChoice, getDuration } from "../../functions/Functions";
 import ActivityChart from "../../common/ActivityChart";
 import useRequest from "../../hooks/useRequest";
 import Loading from "../../common/Loading";
@@ -9,7 +9,7 @@ import { TRAILERS_URL, TRAILER_LOG_STATUS, TRAILER_LOG_STATUS_COLOR } from "../.
 const TrailerLogs = ({ close, trailer }) => {
   const [scale, setScale] = useState({
     choice: "r2",
-    from: stringToDateTime("1 days before & no time"),
+    from: stringToDateTime("7 days before & no time"),
     to: stringToDateTime("today"),
   });
 
@@ -50,6 +50,7 @@ const TrailerLogs = ({ close, trailer }) => {
                   <th>№</th>
                   <th>status</th>
                   <th>time</th>
+                  <th>duration</th>
                   <th>location</th>
                   <th>vehicle</th>
                 </tr>
@@ -61,7 +62,8 @@ const TrailerLogs = ({ close, trailer }) => {
                       <td>{index + 1}</td>
                       <td>{getChoice(log.status, TRAILER_LOG_STATUS)}</td>
                       <td>{fixDate(log.time)}</td>
-                      <td>*</td>
+                      <td>{index > 0 ? getDuration(log.time, request.data[index - 1].time, "%h h, %m m, %s s") : "-"}</td>
+                      <td title={log.location}>{log.latitude + ", " + log.longitude}</td>
                       <td>*</td>
                     </tr>
                   );

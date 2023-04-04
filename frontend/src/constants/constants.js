@@ -23,16 +23,25 @@ export const DEFAULT_PAGE = "/overview";
 
 export const ROLES = {
   Owner: "OWN",
-  Admin: "ADM",
   Dispatcher: "DIS",
   Updater: "UPD",
+  Fleet_manager: "FLM",
+  Safety_manager: "SAM",
+  Accountant: "ACC",
+  Developer: "DEV",
+  Guest: "GUE",
 };
 
 export const USER_ROLES = {
   // OWN: "Owner",
-  ADM: "Admin",
+  OWN: "Owner",
   DIS: "Dispatcher",
   UPD: "Updater",
+  FLM: "Fleet manager",
+  SAM: "Safety manager",
+  ACC: "Accountant",
+  DEV: "Developer",
+  GUE: "Guest",
 };
 
 export const ACTIVITY_RANGE = {

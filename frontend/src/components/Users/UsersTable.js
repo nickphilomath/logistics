@@ -1,29 +1,7 @@
 // import icons
 import { BsPencil } from "react-icons/bs";
-
-const getName = (id, names) => {
-  for (let name of names) {
-    if (name.id === id) return name.first_name + " " + name.last_name;
-  }
-  return "! name not found !";
-};
-
-const getChoice = (choice, choices) => {
-  let found = "!!! not found !!!";
-  Object.keys(choices).forEach((ch) => {
-    if (ch === choice) {
-      found = choices[ch];
-    }
-  });
-  return found;
-};
-
-const USER_ROLES = {
-  OWN: "Owner",
-  ADM: "Admin",
-  DIS: "Dispatcher",
-  UPD: "Updater",
-};
+import { USER_ROLES } from "../../constants/constants";
+import { getChoice } from "../../functions/Functions";
 
 const UsersTable = ({ users, handleEdit }) => {
   return (

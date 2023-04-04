@@ -15,6 +15,7 @@ redis = "*"
 flower = "*"
 eventlet = "*"
 django-redis = "*"
+pillow = "*"
 
 [dev-packages]
 

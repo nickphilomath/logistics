@@ -2,15 +2,21 @@
 import { BsPencil } from "react-icons/bs";
 import { AiOutlineAlignLeft } from "react-icons/ai";
 import { TRAILER_STATUS } from "../../constants/constants";
-import { getChoice, findAndGet } from "../../functions/Functions";
+import { getChoice, findAndGet, sort } from "../../functions/Functions";
 import useMessage from "../../hooks/useMessage";
 
 const TrailersTable = ({ trailers, locations, handleEdit, handleLog }) => {
   const { createMessage } = useMessage();
-  const handleCopyLocation = (location) => {
-    navigator.clipboard.writeText(location.latitude + ", " + location.longitude);
+  const handleCopyLocation = async (location) => {
+    await navigator.clipboard.writeText(location.latitude + ", " + location.longitude);
     createMessage({ type: "success", content: "GPS location copied!" });
   };
+
+  trailers = sort(trailers, [
+    { column: "number", ascending: true },
+    { column: "status", ascending: true },
+  ]);
+
   return (
     <table className="table">
       <thead>
@@ -28,7 +34,7 @@ const TrailersTable = ({ trailers, locations, handleEdit, handleLog }) => {
         {trailers.map((trailer, index) => {
           let location = findAndGet("id", trailer.id, locations);
           return (
-            <tr key={trailer.id}>
+            <tr key={trailer.id} className={trailer.status === "ius" ? "" : "inactive"}>
               <td>{index + 1}</td>
               <td>{trailer.number}</td>
               <td
@@ -41,7 +47,7 @@ const TrailersTable = ({ trailers, locations, handleEdit, handleLog }) => {
                 {location ? `${location.location}` : "not connected"}
               </td>
               <td className={location && location.speed > 0 ? "good" : location ? "" : "warn"}>
-                {location ? (location.speed > 0 ? `${Math.round(location.speed)} mph` : "not moving") : "not connected"}
+                {location ? (location.speed > 0 ? `${Math.round(location.speed)} mph` : "stopped") : "not connected"}
               </td>
               <td>{trailer.last_trip}*</td>
               <td>{getChoice(trailer.status, TRAILER_STATUS)}</td>

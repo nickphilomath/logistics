@@ -50,11 +50,17 @@ class EditTrailer(BaseTrailer):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='edit_trailer_user')
     edit_time = models.DateTimeField(auto_now_add=True)
 
+class TrailerImage(models.Model):
+    trailer = models.ForeignKey(Trailer, on_delete=models.CASCADE, related_name='trailer_image')
+    image = models.ImageField(upload_to='trailer_images')
 
 class TrailerLog(models.Model):
     trailer = models.ForeignKey(Trailer, on_delete=models.CASCADE, related_name='trailer_log')
     status = models.CharField(max_length=1, choices=CONSTANTS.TRAILER_LOG_STATUS)
     time = models.DateTimeField(auto_now_add=True)
+    latitude = models.DecimalField(max_digits=12, decimal_places=9)
+    longitude = models.DecimalField(max_digits=12, decimal_places=9)
+    location = models.CharField(max_length=255, null=True)
 
 
 ############## actions ##############
@@ -64,3 +70,12 @@ class Action(models.Model):
     target = models.BigIntegerField(null=True)
     target_name = models.CharField(max_length=3, choices=CONSTANTS.TARGET_NAMES)
     time = models.DateTimeField(auto_now_add=True)
+
+
+class RoadPoint(models.Model):
+    latitude = models.DecimalField(max_digits=12, decimal_places=9)
+    longitude = models.DecimalField(max_digits=12, decimal_places=9)
+    altitude = models.IntegerField(null=True) # must be in metres
+    address = models.CharField(max_length=255, null=True)
+    degree = models.DecimalField(max_digits=4, decimal_places=1, null=True)
+    speed = models.DecimalField(max_digits=6, decimal_places=3) # must be in KPH (kilometres per hour) not MPH

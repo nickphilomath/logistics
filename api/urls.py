@@ -6,7 +6,7 @@ from django.urls import path
 
 from core.views import MyTokenObtainPairView
 from .views.users import users
-from .views.trailers import trailers, trailers_location, trailer_logs
+from .views.trailers import trailers, trailers_location, trailer_logs, trailer_images
 
 
 urlpatterns = [
@@ -16,5 +16,6 @@ urlpatterns = [
     path('users/', users),
     path('assets/trailers/', trailers),
     path('assets/trailers/location', trailers_location),
-    path('assets/trailers/logs', trailer_logs)
+    path('assets/trailers/logs', trailer_logs),
+    path('assets/trailer-images/<int:id>', trailer_images)
 ]

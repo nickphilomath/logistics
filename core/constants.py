@@ -2,9 +2,13 @@
 class CONSTANTS:
     USER_ROLES = [
         ('OWN', 'Owner'),
-        ('STA', 'Staff'),
         ('DIS', 'Dispatcher'),
         ('UPD', 'Updater'),
+        ('FLM', 'Fleet manager'),
+        ('SAM', 'Safety manager'),
+        ('ACC', 'Accountant'),
+        ('DEV', 'Developer'),
+        ('GUE', 'Guest'),
     ]
 
     COUNTRIES = [
