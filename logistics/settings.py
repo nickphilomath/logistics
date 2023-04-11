@@ -13,7 +13,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 MYSQL_USER = os.getenv('MYSQL_USER')
 MYSQL_PASSWORD = os.getenv('MYSQL_PASSWORD')
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     # 'debug_toolbar',
+    'graphene_django',
     'api',
     'core',
     'telebot'
@@ -118,8 +119,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'mapDownloader'),
 ]
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = 'media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Default primary key field type
@@ -195,6 +196,10 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     }
+}
+
+GRAPHENE = {
+    "SCHEMA": "api.schema.schema"
 }
 
 # HTTPS settings

@@ -16,6 +16,8 @@ flower = "*"
 eventlet = "*"
 django-redis = "*"
 pillow = "*"
+django-debug-toolbar = "*"
+graphene-django = ">=3"
 
 [dev-packages]
 
